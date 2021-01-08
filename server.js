@@ -68,7 +68,7 @@ res.send("reading")
 
 //Delete a file using file system with body {"filename":"logo.txt"}
 app.delete('/deletefile', function (req, res) {
-    fs.unlinkSync(__dirname + "/assets/files/" + req.body.filename, (err,data) => {
+    fs.unlink(__dirname + "/assets/files/" + req.body.filename, (err,data) => {
         if (err) {
           console.error(err)
           res.status(404).json({message:"cannot delete file "})
@@ -76,7 +76,7 @@ app.delete('/deletefile', function (req, res) {
         }
       res.status(200).json({message:"deleted file "+req.body.filename})
         //file removed
-      })
+      });
 
     })
 
@@ -96,6 +96,7 @@ app.delete('/deletefile', function (req, res) {
   var three= req.body.color3
 
         mergeAll(one,two,three)
+        res.status(200).json({message:"callbacks"})
         })
 
     async function mergeAll(one,two,three){
