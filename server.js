@@ -96,7 +96,7 @@ app.delete('/deletefile', function (req, res) {
   var three= req.body.color3
 
         mergeAll(one,two,three)
-        res.status(200).json({message:"callbacks"})
+        res.status(200).json({message:"CallBacks"})
         })
 
     async function mergeAll(one,two,three){
